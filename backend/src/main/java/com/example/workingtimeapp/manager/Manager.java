@@ -1,7 +1,10 @@
-package com.example.workingtimeapp.entity;
+package com.example.workingtimeapp.manager;
 
+import com.example.workingtimeapp.employee.Employee;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "managers")
@@ -27,4 +30,7 @@ public class Manager {
 
     @Column(nullable = false)
     private String email;
+
+    @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Employee> employees;
 }

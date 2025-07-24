@@ -1,5 +1,7 @@
-package com.example.workingtimeapp.entity;
+package com.example.workingtimeapp.employee;
 
+import com.example.workingtimeapp.clockevent.ClockEvent;
+import com.example.workingtimeapp.manager.Manager;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -46,6 +48,10 @@ public class Employee {
 
     @Column(nullable = false)
     private String pinCode;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference

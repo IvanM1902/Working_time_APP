@@ -1,5 +1,6 @@
-package com.example.workingtimeapp.entity;
+package com.example.workingtimeapp.clockevent;
 
+import com.example.workingtimeapp.employee.Employee;
 import com.example.workingtimeapp.enums.EventType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
